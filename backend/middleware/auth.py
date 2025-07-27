@@ -1,7 +1,7 @@
 from fastapi import HTTPException, Depends, Request, Response
 from services.token_service import token_service
 from models.auth import SessionData
-from exceptions import SessionExpiredException
+from backend.models.exceptions import SessionExpiredException
 
 
 async def verify_cookie_token(request: Request, response: Response) -> SessionData:

@@ -2,7 +2,7 @@ import httpx
 from typing import Dict, List, Any
 from models.auth import WebsiteEnum, SessionData
 from models.deals import DealsApiResponse, DealFilesApiResponse
-from exceptions import (
+from backend.models.exceptions import (
     WebsiteConnectionException
 )
 from config import settings

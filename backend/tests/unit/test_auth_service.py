@@ -1,13 +1,13 @@
 import pytest
 from unittest.mock import Mock, patch
-from services.auth_service import AuthService
-from models.exceptions import InvalidCredentialsError
+from services.auth_service import WebsiteAuthService
+from models.exceptions import InvalidCredentialsException
 
 class TestAuthService:
     
     @pytest.fixture
     def auth_service(self):
-        return AuthService()
+        return WebsiteAuthService()
     
     @pytest.fixture
     def mock_user_data(self):
@@ -62,7 +62,7 @@ class TestAuthService:
         """Test authentication with invalid username"""
         mock_get_user.return_value = None
         
-        with pytest.raises(InvalidCredentialsError):
+        with pytest.raises(InvalidCredentialsException):
             auth_service.authenticate_user("invalid@example.com", "password")
     
     @patch('services.auth_service.AuthService.get_user_by_username')
@@ -75,7 +75,7 @@ class TestAuthService:
         }
         mock_get_user.return_value = mock_user
         
-        with pytest.raises(InvalidCredentialsError):
+        with pytest.raises(InvalidCredentialsException):
             auth_service.authenticate_user(
                 mock_user_data["username"], 
                 "wrongpassword"

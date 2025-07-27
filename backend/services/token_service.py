@@ -3,7 +3,7 @@ import json
 from datetime import datetime, timedelta, timezone
 from typing import Dict, Any
 from models.auth import SessionData, WebsiteEnum
-from backend.models.exceptions import SessionExpiredException
+from models.exceptions import SessionExpiredException
 from config import settings
 
 

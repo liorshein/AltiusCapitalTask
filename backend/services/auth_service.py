@@ -3,7 +3,7 @@ from typing import Dict
 from datetime import datetime, timezone
 from models.auth import WebsiteEnum, SessionData
 from services.token_service import token_service
-from backend.models.exceptions import (
+from models.exceptions import (
     InvalidCredentialsException,
     WebsiteConnectionException,
     UnsupportedWebsiteException

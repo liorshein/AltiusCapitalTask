@@ -1,5 +1,4 @@
 import pytest
-from fastapi.testclient import TestClient
 
 @pytest.mark.e2e
 @pytest.mark.slow

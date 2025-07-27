@@ -1,0 +1,14 @@
+{
+  "python.defaultInterpreterPath": "./backend/venv/bin/python",
+  "python.terminal.activateEnvironment": true,
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestPath": "./backend/venv/bin/pytest",
+  "python.testing.pytestArgs": [
+    "backend/tests"
+  ],
+  "python.testing.cwd": "${workspaceFolder}/backend",
+  "pylance.typeCheckingMode": "basic",
+  "python.analysis.extraPaths": [
+    "./backend"
+  ]
+}

@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException, Response, Request, status
 from models.auth import LoginRequest, LoginResponse
 from services.auth_service import auth_service
 from services.token_service import token_service
-from backend.models.exceptions import (
+from models.exceptions import (
     InvalidCredentialsException,
     WebsiteConnectionException,
     SessionExpiredException

@@ -13,7 +13,7 @@ class Settings(BaseSettings):
 
     allowed_origins: List[str] = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000,http://localhost:5173").split(",")
 
-    class Config:
+class Config:
         env_file = ".env"
 
 

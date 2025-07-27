@@ -1,7 +1,5 @@
-import type { Website } from "@/types";
-
 export type WebsiteConfig = {
-  id: Website;
+  id: string;
   name: string;
   url: string;
   test_credentials: {
@@ -10,7 +8,7 @@ export type WebsiteConfig = {
   };
 };
 
-export const WEBSITES: Record<Website, WebsiteConfig> = {
+export const WEBSITES: Record<string, WebsiteConfig> = {
   "fo1": {
     id: "fo1",
     name: "FO1 Altius Finance",

@@ -1,10 +1,8 @@
 import jwt
-import json
 from datetime import datetime, timedelta, timezone
-from typing import Dict, Any
 from models.auth import SessionData, WebsiteEnum
 from models.exceptions import SessionExpiredException
-from config import settings
+from models.config import settings
 
 
 class TokenService:

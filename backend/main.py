@@ -10,7 +10,7 @@ app = FastAPI(
     version="1.0.0"
 )
 
-from config import settings
+from models.config import settings
 
 app.add_middleware(
     CORSMiddleware,

@@ -8,8 +8,3 @@ python-jose[cryptography]
 passlib[bcrypt]
 python-dotenv
 PyJWT
-pytest
-pytest-asyncio
-pytest-mock
-pytest-cov
-faker

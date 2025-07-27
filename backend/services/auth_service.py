@@ -2,13 +2,12 @@ import httpx
 from typing import Dict
 from datetime import datetime, timezone
 from models.auth import WebsiteEnum, SessionData
-from services.token_service import token_service
 from models.exceptions import (
     InvalidCredentialsException,
     WebsiteConnectionException,
     UnsupportedWebsiteException
 )
-from config import settings
+from models.config import settings
 
 class WebsiteAuthService:
     def __init__(self):

@@ -36,8 +36,8 @@ async def login(request: LoginRequest, response: Response):
             key="session_token",
             value=session_token,
             httponly=True,
-            secure=False,
-            samesite="lax",
+            secure=True,
+            samesite="none",
             max_age=24 * 60 * 60
         )
 
@@ -77,7 +77,11 @@ async def validate_session(request: Request):
 @router.post("/logout")
 async def logout(response: Response):
     # Simply clear the session cookie (JWT is stateless)
-    response.delete_cookie(key="session_token")
+    response.delete_cookie(
+        key="session_token",
+        secure=True,
+        samesite="none"
+    )
 
     return {
         "success": True,

@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { useDownloadDealFile } from "@/hooks/useDownloadDeal";
 import type { Deal } from "@/types";
+import { formatDate } from "@/lib/date";
 
 type DealCardProps = {
     deal: Deal;
@@ -18,14 +19,6 @@ type DealCardProps = {
 export const DealCard = ({ deal }: DealCardProps) => {
     const { mutate: downloadDealFile, isPending: isDownloading } =
         useDownloadDealFile();
-
-    const formatDate = (dateString: string) => {
-        return new Date(dateString).toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-        });
-    };
 
     const getStatusColor = (status: string) => {
         switch (status.toLowerCase()) {

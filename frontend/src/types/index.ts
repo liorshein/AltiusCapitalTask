@@ -10,18 +10,15 @@ export type Deal = {
   files_available: boolean
 }
 
-export type Website = "fo1" | "fo2";
-
 export type LoginRequest = {
-  website: Website;
+  website: string;
   email: string;
   password: string;
 }
 
 export type LoginResponse = {
   success: boolean;
-  session_token?: string;
-  website: Website;
+  website: string;
   message?: string;
 }
 

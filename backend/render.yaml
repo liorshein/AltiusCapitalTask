@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: altiuscapital-backend
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port $PORT"
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALGORITHM
+        value: HS256
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: 30
+      - key: FO1_BASE_URL
+        value: https://fo1.api.altius.finance/api
+      - key: FO2_BASE_URL
+        value: https://fo2.api.altius.finance/api

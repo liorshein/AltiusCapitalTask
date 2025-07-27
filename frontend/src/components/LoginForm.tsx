@@ -29,6 +29,7 @@ export const LoginForm = ({ website, onSubmit, loading }: LoginFormProps) => {
         formState: { errors, isValid },
         reset,
         setValue,
+        trigger,
     } = useForm<LoginFormData>({
         resolver: zodResolver(loginSchema),
         mode: "onChange",
@@ -36,16 +37,17 @@ export const LoginForm = ({ website, onSubmit, loading }: LoginFormProps) => {
 
     useEffect(() => {
         reset();
-    }, [website]);
+    }, [website, reset]);
 
     const onFormSubmit = (data: LoginFormData) => {
         onSubmit({ website, email: data.email, password: data.password });
     };
 
-    const handleTestLogin = () => {
+    const handleTestLogin = async () => {
         const testCreds = WEBSITES[website].test_credentials;
         setValue("email", testCreds.email);
         setValue("password", testCreds.password);
+        await trigger();
     };
 
     return (

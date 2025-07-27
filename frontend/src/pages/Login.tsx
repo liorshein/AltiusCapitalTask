@@ -2,7 +2,7 @@ import { useState } from "react";
 import { LoginForm } from "@/components/LoginForm";
 import { WebsiteSelector } from "@/components/WebsiteSelector";
 import { useLogin } from "@/hooks/useLogin";
-import type { LoginRequest, Website } from "@/types";
+import type { LoginRequest } from "@/types";
 import { useNavigate } from "react-router";
 import { toast } from "sonner";
 
@@ -10,7 +10,7 @@ const Login = () => {
     const navigate = useNavigate();
     const { mutate, isPending } = useLogin();
 
-    const [selectedWebsite, setSelectedWebsite] = useState<Website | "">("");
+    const [selectedWebsite, setSelectedWebsite] = useState<string>("");
 
     const handleLogin = async (loginData: LoginRequest) => {
         mutate(loginData, {

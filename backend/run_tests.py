@@ -37,9 +37,13 @@ def main():
     if args.verbose:
         cmd += " -v"
     
-    # Add coverage
+    # Add coverage (check if pytest-cov is available)
     if args.coverage:
-        cmd += " --cov=. --cov-report=html --cov-report=term"
+        try:
+            import pytest_cov
+            cmd += " --cov=. --cov-report=html --cov-report=term"
+        except ImportError:
+            print("Warning: pytest-cov not installed. Running tests without coverage.")
     
     # Add test markers
     if args.unit:

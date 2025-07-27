@@ -1,13 +1,11 @@
 [build]
   base = "frontend"
   command = "npm install && npm run build"
-  publish = "frontend/dist"
+  publish = "dist"
+  ignore = "exit 0"
 
 [build.environment]
   NODE_VERSION = "18"
-
-[build.ignore]
-  command = "exit 0"
 
 [[redirects]]
   from = "/*"

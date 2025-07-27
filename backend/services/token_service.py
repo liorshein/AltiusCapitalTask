@@ -38,7 +38,7 @@ class TokenService:
                 email=payload['email'],
                 cookies=payload['cookies'],
                 authenticated_at=payload['authenticated_at'],
-                expires_at=payload['exp']
+                expires_at=str(payload['exp'])
             )
             
         except jwt.ExpiredSignatureError:

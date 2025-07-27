@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -23,6 +23,8 @@ type LoginFormProps = {
 };
 
 export const LoginForm = ({ website, onSubmit, loading }: LoginFormProps) => {
+    const [websiteError, setWebsiteError] = useState<string>("");
+    
     const {
         register,
         handleSubmit,
@@ -37,6 +39,7 @@ export const LoginForm = ({ website, onSubmit, loading }: LoginFormProps) => {
 
     useEffect(() => {
         reset();
+        setWebsiteError("");
     }, [website, reset]);
 
     const onFormSubmit = (data: LoginFormData) => {
@@ -44,6 +47,11 @@ export const LoginForm = ({ website, onSubmit, loading }: LoginFormProps) => {
     };
 
     const handleTestLogin = async () => {
+        if (!website || !(website in WEBSITES)) {
+            setWebsiteError("Please select a website first");
+            return;
+        }
+        setWebsiteError("");
         const testCreds = WEBSITES[website].test_credentials;
         setValue("email", testCreds.email);
         setValue("password", testCreds.password);
@@ -56,6 +64,11 @@ export const LoginForm = ({ website, onSubmit, loading }: LoginFormProps) => {
                 <CardTitle>Login Credentials</CardTitle>
             </CardHeader>
             <CardContent>
+                {websiteError && (
+                    <div className="mb-4 p-3 border border-red-500 rounded-md bg-red-50">
+                        <p className="text-sm text-red-600">{websiteError}</p>
+                    </div>
+                )}
                 <form
                     onSubmit={handleSubmit(onFormSubmit)}
                     className="space-y-4">

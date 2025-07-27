@@ -7,11 +7,10 @@ import {
     SelectValue,
 } from "./ui/select";
 import { WEBSITES_ARRAY } from "@/config/websites";
-import type { Website } from "@/types";
 
 type WebsiteSelectorProps = {
-    selectedWebsite: Website | "";
-    onWebsiteChange: (websiteId: Website) => void;
+    selectedWebsite: string;
+    onWebsiteChange: (websiteId: string) => void;
 };
 
 export const WebsiteSelector = ({

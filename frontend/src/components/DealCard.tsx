@@ -38,7 +38,7 @@ export const DealCard = ({ deal }: DealCardProps) => {
     };
 
     return (
-        <Card className="h-full hover:shadow-md transition-shadow">
+        <Card className="h-full hover:shadow-md transition-shadow" data-testid="deal-card">
             <CardHeader className="pb-3">
                 <div className="flex justify-between items-start mb-2">
                     <CardTitle className="text-lg line-clamp-2">
@@ -95,7 +95,8 @@ export const DealCard = ({ deal }: DealCardProps) => {
                             onClick={handleDownload}
                             disabled={isDownloading || !deal.title}
                             className="w-full flex items-center gap-2"
-                            size="sm">
+                            size="sm"
+                            data-testid={`download-deal-${deal.id}`}>
                             <Download className="h-4 w-4" />
                             {isDownloading ? "Downloading..." : "Download Deal"}
                         </Button>

@@ -37,6 +37,7 @@ export const Navigator = () => {
             onClick={handleLogout}
             disabled={isLoggingOut}
             className="flex items-center space-x-2"
+            data-testid="logout-button"
           >
             <LogOut className="h-4 w-4" />
             <span>{isLoggingOut ? 'Logging out...' : 'Logout'}</span>

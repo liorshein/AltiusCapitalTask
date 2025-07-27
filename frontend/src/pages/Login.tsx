@@ -18,6 +18,9 @@ const Login = () => {
                 toast.success(data.message || "Login successful!");
                 navigate("/");
             },
+            onError: (error) => {
+                toast.error(error.message || "Login failed. Please check your credentials.");
+            },
         });
     };
 

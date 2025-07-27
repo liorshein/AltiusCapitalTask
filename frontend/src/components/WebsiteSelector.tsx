@@ -23,14 +23,15 @@ export const WebsiteSelector = ({
             <Select
                 value={selectedWebsite}
                 onValueChange={onWebsiteChange}>
-                <SelectTrigger>
+                <SelectTrigger data-testid="website-selector">
                     <SelectValue placeholder="Choose a website" />
                 </SelectTrigger>
                 <SelectContent>
                     {WEBSITES_ARRAY.map((website) => (
                         <SelectItem
                             key={website.id}
-                            value={website.id}>
+                            value={website.id}
+                            data-testid={`website-option-${website.id}`}>
                             {website.name}
                         </SelectItem>
                     ))}
